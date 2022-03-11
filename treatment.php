@@ -24,14 +24,19 @@ if(isset($_POST['nom'])){
         $err=3;
 
     }else{
-        $prenom = htmlspecialchars($_POST['pays']);
+        $pays = htmlspecialchars($_POST['pays']);
+        $world= ["BE", "IT", "FR"];
+        if(!in_array($pays,$world))
+        {
+            $err=5;
+        }
     }
 
     if(empty($_POST['message'])){
         $err=4;
 
     }else{
-        $prenom = htmlspecialchars($_POST['message']);
+        $message = htmlspecialchars($_POST['message']);
     }
     
     // test si il y a erreur
